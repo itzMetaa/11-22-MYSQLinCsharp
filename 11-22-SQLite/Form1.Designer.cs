@@ -28,13 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.rendezokListBox = new System.Windows.Forms.ListBox();
+            this.SuspendLayout();
+            // 
+            // rendezokListBox
+            // 
+            this.rendezokListBox.FormattingEnabled = true;
+            this.rendezokListBox.Location = new System.Drawing.Point(12, 12);
+            this.rendezokListBox.Name = "rendezokListBox";
+            this.rendezokListBox.Size = new System.Drawing.Size(133, 160);
+            this.rendezokListBox.TabIndex = 0;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ClientSize = new System.Drawing.Size(388, 267);
+            this.Controls.Add(this.rendezokListBox);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.ListBox rendezokListBox;
     }
 }
 
