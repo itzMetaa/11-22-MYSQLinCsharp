@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonTorles = new System.Windows.Forms.Button();
+            this.listBoxFilmek = new System.Windows.Forms.ListBox();
+            this.buttonFilmTorles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rendezokListBox
@@ -46,6 +48,7 @@
             this.rendezokListBox.Name = "rendezokListBox";
             this.rendezokListBox.Size = new System.Drawing.Size(140, 95);
             this.rendezokListBox.TabIndex = 0;
+            this.rendezokListBox.SelectedIndexChanged += new System.EventHandler(this.rendezokListBox_SelectedIndexChanged);
             // 
             // buttonOk
             // 
@@ -107,20 +110,41 @@
             // 
             // buttonTorles
             // 
-            this.buttonTorles.Location = new System.Drawing.Point(45, 113);
+            this.buttonTorles.Location = new System.Drawing.Point(87, 113);
             this.buttonTorles.Name = "buttonTorles";
-            this.buttonTorles.Size = new System.Drawing.Size(75, 23);
+            this.buttonTorles.Size = new System.Drawing.Size(65, 23);
             this.buttonTorles.TabIndex = 8;
             this.buttonTorles.Text = "Törlés";
             this.buttonTorles.UseVisualStyleBackColor = true;
             this.buttonTorles.Click += new System.EventHandler(this.buttonTorles_Click);
+            // 
+            // listBoxFilmek
+            // 
+            this.listBoxFilmek.FormattingEnabled = true;
+            this.listBoxFilmek.Location = new System.Drawing.Point(12, 142);
+            this.listBoxFilmek.Name = "listBoxFilmek";
+            this.listBoxFilmek.Size = new System.Drawing.Size(140, 108);
+            this.listBoxFilmek.TabIndex = 9;
+            this.listBoxFilmek.Visible = false;
+            // 
+            // buttonFilmTorles
+            // 
+            this.buttonFilmTorles.Location = new System.Drawing.Point(12, 113);
+            this.buttonFilmTorles.Name = "buttonFilmTorles";
+            this.buttonFilmTorles.Size = new System.Drawing.Size(69, 23);
+            this.buttonFilmTorles.TabIndex = 10;
+            this.buttonFilmTorles.Text = "Film Törlés";
+            this.buttonFilmTorles.UseVisualStyleBackColor = true;
+            this.buttonFilmTorles.Click += new System.EventHandler(this.buttonFilmTorles_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(388, 165);
+            this.ClientSize = new System.Drawing.Size(388, 270);
+            this.Controls.Add(this.buttonFilmTorles);
+            this.Controls.Add(this.listBoxFilmek);
             this.Controls.Add(this.buttonTorles);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -148,6 +172,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonTorles;
+        private System.Windows.Forms.ListBox listBoxFilmek;
+        private System.Windows.Forms.Button buttonFilmTorles;
     }
 }
 

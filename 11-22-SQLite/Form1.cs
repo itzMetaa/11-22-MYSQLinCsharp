@@ -41,7 +41,34 @@ namespace _11_22_SQLite
 
                     rendezokListBox.Items.Add(rendezo);
                 }
-                
+            }
+        }
+
+        void FilmListazas()
+        {
+            listBoxFilmek.Items.Clear();
+            var rendezo = (Rendezo)(rendezokListBox.SelectedItem);
+
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = @"SELECT id, cim, kiadas, hossz, rendezo_id 
+                                FROM filmek
+                                WHERE rendezo_id like @rendezo_id
+                                ORDER BY cim";
+            cmd.Parameters.AddWithValue("@rendezo_id", rendezo.Id);
+
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var id = reader.GetInt32("id");
+                    var cim = reader.GetString("cim");
+                    var hossz = reader.GetInt32("hossz");
+                    var kiadas = reader.GetDateTime("kiadas");
+                    var rendezo_id = reader.GetInt32("rendezo_id");
+                    var film = new Film(id, cim, hossz, kiadas, rendezo_id);
+
+                    listBoxFilmek.Items.Add(film);
+                }
             }
         }
 
@@ -68,10 +95,31 @@ namespace _11_22_SQLite
             int rendezo_id = rendezokListBox.SelectedIndex;
             var cmd = conn.CreateCommand();
             cmd.CommandText = "DELETE FROM rendezok WHERE id = @rendezo_id";
-            cmd.Parameters.AddWithValue("@redezo_id", rendezo.Id);
-
+            cmd.Parameters.AddWithValue("@rendezo_id", rendezo.Id);
             cmd.ExecuteNonQuery();
             RendezoListazas();
+        }
+
+        private void rendezokListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBoxFilmek.Visible = true;
+            FilmListazas();
+        }
+
+        private void buttonFilmTorles_Click(object sender, EventArgs e)
+        {
+            var film = (Film)(listBoxFilmek.SelectedItem);
+            if (listBoxFilmek.SelectedIndex == -1)
+            {
+                MessageBox.Show("Helo nemjio nincs kivlaszltva:)XD:D");
+                return;
+            }
+            int film_id = listBoxFilmek.SelectedIndex;
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "DELETE FROM filmek WHERE id = @film_id";
+            cmd.Parameters.AddWithValue("@film_id", film.Id);
+            cmd.ExecuteNonQuery();
+            FilmListazas();
         }
     }
 }
