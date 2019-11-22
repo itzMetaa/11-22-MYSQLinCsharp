@@ -39,6 +39,15 @@
             this.buttonTorles = new System.Windows.Forms.Button();
             this.listBoxFilmek = new System.Windows.Forms.ListBox();
             this.buttonFilmTorles = new System.Windows.Forms.Button();
+            this.textBoxFilmCim = new System.Windows.Forms.TextBox();
+            this.numericUpDownFilmHossz = new System.Windows.Forms.NumericUpDown();
+            this.dateTimePickerFilmKiadas = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.buttonFilmFelvetel = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFilmHossz)).BeginInit();
             this.SuspendLayout();
             // 
             // rendezokListBox
@@ -56,7 +65,7 @@
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 1;
-            this.buttonOk.Text = "Ok";
+            this.buttonOk.Text = "Felvétel";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
@@ -123,7 +132,7 @@
             this.listBoxFilmek.FormattingEnabled = true;
             this.listBoxFilmek.Location = new System.Drawing.Point(12, 142);
             this.listBoxFilmek.Name = "listBoxFilmek";
-            this.listBoxFilmek.Size = new System.Drawing.Size(140, 108);
+            this.listBoxFilmek.Size = new System.Drawing.Size(140, 69);
             this.listBoxFilmek.TabIndex = 9;
             this.listBoxFilmek.Visible = false;
             // 
@@ -137,12 +146,98 @@
             this.buttonFilmTorles.UseVisualStyleBackColor = true;
             this.buttonFilmTorles.Click += new System.EventHandler(this.buttonFilmTorles_Click);
             // 
+            // textBoxFilmCim
+            // 
+            this.textBoxFilmCim.Location = new System.Drawing.Point(215, 142);
+            this.textBoxFilmCim.Name = "textBoxFilmCim";
+            this.textBoxFilmCim.Size = new System.Drawing.Size(139, 20);
+            this.textBoxFilmCim.TabIndex = 11;
+            // 
+            // numericUpDownFilmHossz
+            // 
+            this.numericUpDownFilmHossz.Location = new System.Drawing.Point(215, 194);
+            this.numericUpDownFilmHossz.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownFilmHossz.Name = "numericUpDownFilmHossz";
+            this.numericUpDownFilmHossz.Size = new System.Drawing.Size(139, 20);
+            this.numericUpDownFilmHossz.TabIndex = 12;
+            this.numericUpDownFilmHossz.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            // 
+            // dateTimePickerFilmKiadas
+            // 
+            this.dateTimePickerFilmKiadas.Location = new System.Drawing.Point(215, 168);
+            this.dateTimePickerFilmKiadas.Name = "dateTimePickerFilmKiadas";
+            this.dateTimePickerFilmKiadas.Size = new System.Drawing.Size(139, 20);
+            this.dateTimePickerFilmKiadas.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(183, 145);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Cím:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(170, 174);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Kiadás:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(173, 196);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Hossz:";
+            // 
+            // buttonFilmFelvetel
+            // 
+            this.buttonFilmFelvetel.Location = new System.Drawing.Point(247, 220);
+            this.buttonFilmFelvetel.Name = "buttonFilmFelvetel";
+            this.buttonFilmFelvetel.Size = new System.Drawing.Size(75, 23);
+            this.buttonFilmFelvetel.TabIndex = 17;
+            this.buttonFilmFelvetel.Text = "Felvétel";
+            this.buttonFilmFelvetel.UseVisualStyleBackColor = true;
+            this.buttonFilmFelvetel.Click += new System.EventHandler(this.buttonFilmFelvetel_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 220);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Összes Film Listázása";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(388, 270);
+            this.ClientSize = new System.Drawing.Size(388, 250);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonFilmFelvetel);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dateTimePickerFilmKiadas);
+            this.Controls.Add(this.numericUpDownFilmHossz);
+            this.Controls.Add(this.textBoxFilmCim);
             this.Controls.Add(this.buttonFilmTorles);
             this.Controls.Add(this.listBoxFilmek);
             this.Controls.Add(this.buttonTorles);
@@ -156,6 +251,7 @@
             this.Controls.Add(this.rendezokListBox);
             this.Name = "Form1";
             this.Text = "Rendezők";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFilmHossz)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,6 +270,14 @@
         private System.Windows.Forms.Button buttonTorles;
         private System.Windows.Forms.ListBox listBoxFilmek;
         private System.Windows.Forms.Button buttonFilmTorles;
+        private System.Windows.Forms.TextBox textBoxFilmCim;
+        private System.Windows.Forms.NumericUpDown numericUpDownFilmHossz;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFilmKiadas;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button buttonFilmFelvetel;
+        private System.Windows.Forms.Button button1;
     }
 }
 

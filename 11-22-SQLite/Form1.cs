@@ -72,6 +72,32 @@ namespace _11_22_SQLite
             }
         }
 
+        void FilmListazasAll()
+        {
+            listBoxFilmek.Items.Clear();
+            var rendezo = (Rendezo)(rendezokListBox.SelectedItem);
+
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = @"SELECT id, cim, kiadas, hossz, rendezo_id 
+                                FROM filmek
+                                ORDER BY cim";
+
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var id = reader.GetInt32("id");
+                    var cim = reader.GetString("cim");
+                    var hossz = reader.GetInt32("hossz");
+                    var kiadas = reader.GetDateTime("kiadas");
+                    var rendezo_id = reader.GetInt32("rendezo_id");
+                    var film = new Film(id, cim, hossz, kiadas, rendezo_id);
+
+                    listBoxFilmek.Items.Add(film);
+                }
+            }
+        }
+
         private void buttonOk_Click(object sender, EventArgs e)
         {
             var cmd = conn.CreateCommand();
@@ -81,6 +107,8 @@ namespace _11_22_SQLite
             cmd.Parameters.AddWithValue("@szarmazas", textBoxSzarmazas.Text);
             cmd.ExecuteNonQuery();
 
+            textBoxNev.Text = "";
+            textBoxSzarmazas.Text = "";
             RendezoListazas();
         }
 
@@ -120,6 +148,29 @@ namespace _11_22_SQLite
             cmd.Parameters.AddWithValue("@film_id", film.Id);
             cmd.ExecuteNonQuery();
             FilmListazas();
+        }
+
+        private void buttonFilmFelvetel_Click(object sender, EventArgs e)
+        {
+            var rendezo = (Rendezo)(rendezokListBox.SelectedItem);
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO filmek (cim,kiadas,hossz,rendezo_id) VALUES(@cim, @kiadas, @hossz, @rendezo_id)";
+            cmd.Parameters.AddWithValue("@cim", textBoxFilmCim.Text);
+            cmd.Parameters.AddWithValue("@kiadas", dateTimePickerSzulDatum.Value);
+            cmd.Parameters.AddWithValue("@hossz", numericUpDownFilmHossz.Value);
+            cmd.Parameters.AddWithValue("@rendezo_id", rendezo.Id);
+            cmd.ExecuteNonQuery();
+
+            textBoxFilmCim.Text = "";
+            numericUpDownFilmHossz.Value = 60;
+
+            FilmListazas();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listBoxFilmek.Visible = true;
+            FilmListazasAll();
         }
     }
 }
