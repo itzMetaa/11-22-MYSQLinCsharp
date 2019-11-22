@@ -68,7 +68,7 @@ namespace _11_22_SQLite
             int rendezo_id = rendezokListBox.SelectedIndex;
             var cmd = conn.CreateCommand();
             cmd.CommandText = "DELETE FROM rendezok WHERE id = @rendezo_id";
-            cmd.Parameters.AddWithValue("@redezo_id", rendezo_id);
+            cmd.Parameters.AddWithValue("@redezo_id", rendezo.Id);
 
             cmd.ExecuteNonQuery();
             RendezoListazas();

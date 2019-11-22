@@ -131,7 +131,7 @@
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.rendezokListBox);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Rendezők";
             this.ResumeLayout(false);
             this.PerformLayout();
 
